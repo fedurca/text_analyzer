@@ -1,5 +1,5 @@
 # echo.py
-TEXTS = ['''
+TEXTS = ['''prvni''', '''
 Situated about 10 miles west of Kemmerer,
 Fossil Butte is a ruggedly impressive
 topographic feature that rises sharply
@@ -24,9 +24,9 @@ are found in multiple limestone layers, which lie some
 represent several varieties of perch, as well as
 other freshwater genera and herring similar to those
 in modern oceans. Other fish such as paddlefish,
-garpike and stingray are also present.'''
+garpike and stingray are also present.''',
+'''Posledni'''
 ]
-
 
 
 def echo(text: str, repetitions: int = 3) -> str:
@@ -37,5 +37,18 @@ def echo(text: str, repetitions: int = 3) -> str:
     return f"{echoed_text.lower()}."
 
 if __name__ == "__main__":
-    text = input("Yell something at a mountain: ")
-    print(echo(text))
+    print(len(TEXTS))
+    # print(TEXTS[0])
+    # print(dir(TEXTS[0]))
+    print(TEXTS[1])
+    # print(TEXTS[1].istitle())
+    title_words = 0
+    
+    words_list = TEXTS[1].split()
+    
+    for word in words_list:
+        if word[0].isupper():
+            title_words+=1
+            print("title word", word," makes count", title_words)
+            print(title_words)           
+    print("sum is:", title_words)
