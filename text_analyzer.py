@@ -30,14 +30,8 @@ garpike and stingray are also present.''',
 
 
 import sys
-import task_template as txt
+# import task_template as txt
 
-"""
-project_1.py: první projekt do Engeto Online Python Akademie
-author: Ludek Fedurca
-email: fedurca@gmail.com
-discord: fedurca#6739
-"""
 valid_users = {"bob": "123",
                "ann": "pass123",
                "mike": "password123",
