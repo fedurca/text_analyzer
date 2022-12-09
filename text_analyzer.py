@@ -24,7 +24,7 @@ are found in multiple limestone layers, which lie some
 represent several varieties of perch, as well as
 other freshwater genera and herring similar to those
 in modern oceans. Other fish such as paddlefish,
-garpike and stingray are also present.''', '''0'''
+garpike and stingray are also present.'''
 ]
 
 
@@ -64,7 +64,7 @@ while(not(1 <= chosen_text <= texts_size)):
     try:
         chosen_text = int(input("Enter a number btw. 1 and  {0} to select: ".format(texts_size)))
     except ValueError:
-        print("incorrect value")# raise
+        print("incorrect value - insert single number in required range")
 
 chosen_text = chosen_text-1
 print(chosen_text)
@@ -98,24 +98,24 @@ stats = {"words_count": len(words_list),
          "words_sum_of_numbers": 0,
          "words_max_len": 0}
 
-AA = 0
-for aaa in words_list:
-    words_list[AA] = words_list[AA].replace(",", "")
-    words_list[AA] = words_list[AA].replace(".", "")
-    AA += 1
+word = 0
+for _ in words_list:
+    words_list[word] = words_list[word].replace(",", "")
+    words_list[word] = words_list[word].replace(".", "")
+    word += 1
 
-for i in words_list:
-    if (i.istitle()):
+for word in words_list:
+    if (word.istitle()):
         stats["words_titlecase"] += 1
-    if (i.isalpha() and i.isupper()):
+    if (word.isalpha() and word.isupper()):
         stats["words_uppercase"] += 1
-    if (i.islower()):
+    if (word.islower()):
         stats["words_lowercase"] += 1
-    if (i.isnumeric()):
+    if (word.isnumeric()):
         stats["words_numeric"] += 1
-        stats["words_sum_of_numbers"] += int(i)
-    if (len(i) >= int(stats["words_max_len"])):
-        stats["words_max_len"] = len(i)
+        stats["words_sum_of_numbers"] += int(word)
+    if (len(word) >= int(stats["words_max_len"])):
+        stats["words_max_len"] = len(word)
 
 print("There are", stats["words_count"], "words in the selected text.")
 print("There are", stats["words_titlecase"], "titlecase words.")
@@ -127,17 +127,32 @@ print("-"*40)
 print("LEN|  OCCURENCES  |NR.")
 print("-"*40)
 
-lenghts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+lenghts = {}
+# [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
-for i in words_list:
-    lenghts[len(i)] += 1
+for word in words_list:
+    if len(word) in lenghts.keys():
+        # print("klic", len(word) ,"je v seznamu, zvysuji o vyskyt jedna")
+        lenghts[len(word)] += 1
+    else:
+        lenghts[len(word)] = 1
+    
+max_len = stats["words_max_len"]
 
-WALK = 0
+dict_member = 1
+while (dict_member < stats["words_max_len"]):
+    print(f'{dict_member:>3}{"|"}{lenghts[dict_member]*"*":<{stats["words_max_len"]+1}}{"|"}{lenghts[dict_member]:<{stats["words_max_len"]}}')
+    dict_member += 1
 
+# WALK = 0
+
+
+"""
 for i in range(1, int(stats["words_max_len"])+1):
-    print(f'{i:>3}|{"*"*lenghts[i]:<14}|{lenghts[i]:<0}')
+    print(f'{i:>3}|{"*"*lenghts[i]:< stats["words_max_len"]}|{lenghts[i]:<0}')
     WALK += 1
     if (DEBUG != 0):
         for j in words_list:
             if (len(j) == WALK):
                 print("SOUCASTI JE:", j)
+"""
