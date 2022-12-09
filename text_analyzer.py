@@ -1,5 +1,5 @@
 # echo.py
-TEXTS = ['''prvni''', '''
+TEXTS = ['''
 Situated about 10 miles west of Kemmerer,
 Fossil Butte is a ruggedly impressive
 topographic feature that rises sharply
@@ -36,8 +36,10 @@ valid_users = {"bob": "123",
                "ann": "pass123",
                "mike": "password123",
                "liz": "pass123"}
-login_req = 1
+login_req = 0
+user = ""
 DEBUG = 0
+
 
 if(login_req):
     user = input("username:")
@@ -60,7 +62,7 @@ print("-"*40)
 chosen_text = input("Enter a number btw. 1 and 3 to select: ")
 chosen_text = int(int(chosen_text)-1)
 
-words_list = txt.TEXTS[chosen_text].split()
+words_list = TEXTS[chosen_text].split()
 
 stats = {"words_count": len(words_list),
          "words_titlecase": 0,
