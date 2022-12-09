@@ -24,8 +24,7 @@ are found in multiple limestone layers, which lie some
 represent several varieties of perch, as well as
 other freshwater genera and herring similar to those
 in modern oceans. Other fish such as paddlefish,
-garpike and stingray are also present.''',
-'''Posledni'''
+garpike and stingray are also present.''', '''0'''
 ]
 
 
@@ -59,8 +58,35 @@ print("Welcome to the app,", user)
 print("We have 3 texts to be analyzed.")
 print("-"*40)
 
-chosen_text = input("Enter a number btw. 1 and 3 to select: ")
-chosen_text = int(int(chosen_text)-1)
+chosen_text = 0 
+texts_size = len(TEXTS)
+while(not(1 <= chosen_text <= texts_size)):
+    try:
+        chosen_text = int(input("Enter a number btw. 1 and  {0} to select: ".format(texts_size)))
+    except ValueError:
+        print("incorrect value")# raise
+
+chosen_text = chosen_text-1
+print(chosen_text)
+
+"""
+text_chosen = 0
+while (text_chosen not in range(1,3)):
+    chosen_text = input("Enter a number btw. 1 and 3 to select: ")
+    text_chosen = int(int(chosen_text)-1)
+    print(chosen_text)
+    print(text_chosen)
+       
+    
+    
+    int(input("Enter a number btw. 1 and 3 to select: ")) in range(1,3)):
+    
+
+choosen_text = 0
+while (0 < choosen_text < 3):
+    chosen_text = input("Enter a number btw. 1 and 3 to select: ")
+    chosen_text = int(int(chosen_text)-1)
+"""
 
 words_list = TEXTS[chosen_text].split()
 
