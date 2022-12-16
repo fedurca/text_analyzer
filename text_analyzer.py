@@ -16,6 +16,14 @@ and steepen abruptly. Overlying them and extending
 to the top of the butte are the much steeper
 buff-to-white beds of the Green River Formation,
 which are about 300 feet thick.''',
+'''At the base of Fossil Butte are the bright
+red, purple, yellow and gray beds of the Wasatch
+Formation. Eroded portions of these horizontal
+beds slope gradually upward from the valley floor
+and steepen abruptly. Overlying them and extending
+to the top of the butte are the much steeper
+buff-to-white beds of the Green River Formation,
+which are about 300 feet thick. a asdfasdfasd asdfasdfasda''',
 '''The monument contains 8198 acres and protects
 a portion of the largest deposit of freshwater fish
 fossils in the world. The richest fossil fish deposits
@@ -58,7 +66,7 @@ print("Welcome to the app,", user)
 print("We have 3 texts to be analyzed.")
 print("-"*40)
 
-chosen_text = 0 
+chosen_text = 2 
 texts_size = len(TEXTS)
 while(not(1 <= chosen_text <= texts_size)):
     try:
@@ -144,6 +152,15 @@ print("-"*40)
 
 
 dict_member = 1
+print(stats["words_max_len"])
+print(dict_member)
+print(lenghts)
+print(lenghts[dict_member])
+print(stats["words_max_len"])
+print(lenghts[dict_member])
+    
+
+print("OK")
 while (dict_member < stats["words_max_len"]):
     print(f'{dict_member:>3}{"|"}{lenghts[dict_member]*"*":<{stats["words_max_len"]+3}}{"|"}{lenghts[dict_member]:<{stats["words_max_len"]}}')
     dict_member += 1
