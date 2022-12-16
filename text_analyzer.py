@@ -123,12 +123,8 @@ print("There are", stats["words_uppercase"], "uppercase words.")
 print("There are", stats["words_lowercase"], "lowercase words.")
 print("There are", stats["words_numeric"], "numeric strings.")
 print("The sum of all the numbers", stats["words_sum_of_numbers"])
-print("-"*40)
-print("LEN|  OCCURENCES  |NR.")
-print("-"*40)
 
 lenghts = {}
-# [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 for word in words_list:
     if len(word) in lenghts.keys():
@@ -137,11 +133,19 @@ for word in words_list:
     else:
         lenghts[len(word)] = 1
     
-max_len = stats["words_max_len"]
+# max_len = stats["words_max_len"]
+
+print("-"*40)
+# print("LEN|  OCCURENCES  |NR.")
+print(f'{"LEN":>3}{"|"}')
+      # {"  OCCURENCES"<{stats["words_max_len"]+3}}{"|"}')
+
+print("-"*40)
+
 
 dict_member = 1
 while (dict_member < stats["words_max_len"]):
-    print(f'{dict_member:>3}{"|"}{lenghts[dict_member]*"*":<{stats["words_max_len"]+1}}{"|"}{lenghts[dict_member]:<{stats["words_max_len"]}}')
+    print(f'{dict_member:>3}{"|"}{lenghts[dict_member]*"*":<{stats["words_max_len"]+3}}{"|"}{lenghts[dict_member]:<{stats["words_max_len"]}}')
     dict_member += 1
 
 # WALK = 0
