@@ -15,7 +15,7 @@ beds slope gradually upward from the valley floor
 and steepen abruptly. Overlying them and extending
 to the top of the butte are the much steeper
 buff-to-white beds of the Green River Formation,
-which are about 300 feet thick.''',
+which are about 300 feet thick. aaaaaaaaaaaaaaaaaaaaaaaaa''',
 '''At the base of Fossil Butte are the bright
 red, purple, yellow and gray beds of the Wasatch
 Formation. Eroded portions of these horizontal
@@ -155,15 +155,25 @@ dict_member = 1
 print(stats["words_max_len"])
 print(dict_member)
 print(lenghts)
-print(lenghts[dict_member])
-print(stats["words_max_len"])
-print(lenghts[dict_member])
+# print(lenghts[dict_member])
+# print(stats["words_max_len"])
+# print(lenghts[dict_member])
     
 
 print("OK")
-while (dict_member < stats["words_max_len"]):
-    print(f'{dict_member:>3}{"|"}{lenghts[dict_member]*"*":<{stats["words_max_len"]+3}}{"|"}{lenghts[dict_member]:<{stats["words_max_len"]}}')
+
+most_occured_lenght = max(lenghts.values())
+print("nejvickrat jest:",most_occured_lenght)
+
+
+
+while (dict_member <= stats["words_max_len"]):
+    if dict_member in lenghts:
+        print(f'{dict_member:>3}{"|"}{lenghts[dict_member]*"*":<{most_occured_lenght}}{"|"}{lenghts[dict_member]:<{stats["words_max_len"]}}')
+    else:
+        print(f'{dict_member:>3}{"|"}{0*"*":<{most_occured_lenght}}{"|"}{0:<{stats["words_max_len"]}}')
     dict_member += 1
+
 
 # WALK = 0
 
