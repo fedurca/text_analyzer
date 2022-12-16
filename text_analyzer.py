@@ -15,7 +15,7 @@ beds slope gradually upward from the valley floor
 and steepen abruptly. Overlying them and extending
 to the top of the butte are the much steeper
 buff-to-white beds of the Green River Formation,
-which are about 300 feet thick. aaaaaaaaaaaaaaaaaaaaaaaaa''',
+which are about 300 feet thick.''',
 '''At the base of Fossil Butte are the bright
 red, purple, yellow and gray beds of the Wasatch
 Formation. Eroded portions of these horizontal
@@ -47,7 +47,6 @@ login_req = 0
 user = ""
 DEBUG = 0
 
-
 if(login_req):
     user = input("username:")
     pwd = input("password:")
@@ -66,7 +65,7 @@ print("Welcome to the app,", user)
 print("We have 3 texts to be analyzed.")
 print("-"*40)
 
-chosen_text = 2 
+chosen_text = 0 
 texts_size = len(TEXTS)
 while(not(1 <= chosen_text <= texts_size)):
     try:
@@ -76,25 +75,6 @@ while(not(1 <= chosen_text <= texts_size)):
 
 chosen_text = chosen_text-1
 print(chosen_text)
-
-"""
-text_chosen = 0
-while (text_chosen not in range(1,3)):
-    chosen_text = input("Enter a number btw. 1 and 3 to select: ")
-    text_chosen = int(int(chosen_text)-1)
-    print(chosen_text)
-    print(text_chosen)
-       
-    
-    
-    int(input("Enter a number btw. 1 and 3 to select: ")) in range(1,3)):
-    
-
-choosen_text = 0
-while (0 < choosen_text < 3):
-    chosen_text = input("Enter a number btw. 1 and 3 to select: ")
-    chosen_text = int(int(chosen_text)-1)
-"""
 
 words_list = TEXTS[chosen_text].split()
 
@@ -140,31 +120,13 @@ for word in words_list:
         lenghts[len(word)] += 1
     else:
         lenghts[len(word)] = 1
-    
-# max_len = stats["words_max_len"]
-
-print("-"*40)
-# print("LEN|  OCCURENCES  |NR.")
-print(f'{"LEN":>3}{"|"}')
-      # {"  OCCURENCES"<{stats["words_max_len"]+3}}{"|"}')
-
-print("-"*40)
-
 
 dict_member = 1
-print(stats["words_max_len"])
-print(dict_member)
-print(lenghts)
-# print(lenghts[dict_member])
-# print(stats["words_max_len"])
-# print(lenghts[dict_member])
-    
-
-print("OK")
-
 most_occured_lenght = max(lenghts.values())
-print("nejvickrat jest:",most_occured_lenght)
 
+print("-"*40)
+print(f'{"LEN":>3}{"|"}{"  OCCURENCES":<{most_occured_lenght}}{"|"}{"NR.":<{stats["words_max_len"]}}')
+print("-"*40)
 
 
 while (dict_member <= stats["words_max_len"]):
@@ -173,17 +135,3 @@ while (dict_member <= stats["words_max_len"]):
     else:
         print(f'{dict_member:>3}{"|"}{0*"*":<{most_occured_lenght}}{"|"}{0:<{stats["words_max_len"]}}')
     dict_member += 1
-
-
-# WALK = 0
-
-
-"""
-for i in range(1, int(stats["words_max_len"])+1):
-    print(f'{i:>3}|{"*"*lenghts[i]:< stats["words_max_len"]}|{lenghts[i]:<0}')
-    WALK += 1
-    if (DEBUG != 0):
-        for j in words_list:
-            if (len(j) == WALK):
-                print("SOUCASTI JE:", j)
-"""
